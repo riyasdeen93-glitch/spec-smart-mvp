@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AlertCircle, CheckCircle, Download, Shield, ArrowRight, ArrowLeft, Plus, Trash2, Edit, FileText, Sparkles, Loader, Layout, Save, Copy, Settings, Ruler, Globe, TriangleAlert, ChevronDown, Building2, FolderOpen, LogOut, Grid } from 'lucide-react';
+import { AlertCircle, CheckCircle, Download, Shield, ArrowRight, ArrowLeft, Plus, Trash2, Edit, FileText, Sparkles, Loader, Layout, Save, Copy, Settings, Ruler, Globe, AlertTriangle, ChevronDown, Building2, FolderOpen, LogOut, Grid } from 'lucide-react';
 
 // --- GEMINI API UTILITIES ---
 const apiKey = ""; // API Key injected at runtime
@@ -605,7 +605,7 @@ export default function SpecSmartMVP() {
                           <div><label className="label-sm">Height ({std.dimUnit})</label><input type="number" value={doorData.height} onChange={e => setDoorData({...doorData, height: e.target.value})} className={`input-field ${dimErr ? 'border-red-500 bg-red-50' : ''}`} /></div>
                        </div>
                     </div>
-                    {dimErr && <div className="text-xs text-red-600 mt-2 p-2 bg-red-50 rounded border border-red-100 flex items-start gap-2"><TriangleAlert size={14} className="shrink-0 mt-0.5"/> {dimErr}</div>}
+                    {dimErr && <div className="text-xs text-red-600 mt-2 p-2 bg-red-50 rounded border border-red-100 flex items-start gap-2"><AlertTriangle size={14} className="shrink-0 mt-0.5"/> {dimErr}</div>}
                  </div>
                )}
 
@@ -705,7 +705,7 @@ export default function SpecSmartMVP() {
          <div className="space-y-4">
             {warnings.length > 0 && (
                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 animate-in fade-in slide-in-from-right-4">
-                  <h3 className="label-sm text-amber-800 mb-2 flex items-center gap-1"><TriangleAlert size={14}/> Standard Alerts</h3>
+                  <h3 className="label-sm text-amber-800 mb-2 flex items-center gap-1"><AlertTriangle size={14}/> Standard Alerts</h3>
                   {warnings.map((w, i) => (
                      <div key={i} className={`text-xs p-2 rounded mb-2 border ${w.severity === 'critical' ? 'bg-red-100 text-red-800 border-red-200' : 'bg-white text-amber-800 border-amber-100'}`}>
                         <strong>{w.title}:</strong> {w.msg}
